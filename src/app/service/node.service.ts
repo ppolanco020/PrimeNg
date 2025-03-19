@@ -6,13 +6,13 @@ export class NodeService {
         return [
             {
                 key: '0',
-                label: 'Documents',
+                label: 'Documents2',
                 data: 'Documents Folder',
                 icon: 'pi pi-fw pi-inbox',
                 children: [
                     {
                         key: '0-0',
-                        label: 'Work',
+                        label: 'Workk',
                         data: 'Work Folder',
                         icon: 'pi pi-fw pi-cog',
                         children: [
@@ -136,7 +136,7 @@ export class NodeService {
             {
                 key: '1',
                 data: {
-                    name: 'Cloud',
+                    name: 'Clouds',
                     size: '20kb',
                     type: 'Folder'
                 },
@@ -162,7 +162,7 @@ export class NodeService {
             {
                 key: '2',
                 data: {
-                    name: 'Desktop',
+                    name: 'Desktops',
                     size: '150kb',
                     type: 'Folder'
                 },
