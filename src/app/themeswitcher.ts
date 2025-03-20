@@ -116,13 +116,7 @@ export class ThemeSwitcher {
 
   config: PrimeNG = inject(PrimeNG);
 
-   defaultThemeState: ThemeState = {
-    preset: "Material", // Example property, adjust based on your actual `ThemeState` type
-    // Add other necessary properties here
-  };
-  
-
-  themeState = signal<ThemeState>(this.defaultThemeState);
+  themeState = signal<ThemeState>(null);
 
   theme = computed(() => (this.themeState()?.darkTheme ? 'dark' : 'light'));
 
@@ -147,7 +141,7 @@ export class ThemeSwitcher {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.onPresetChange(this.themeState().preset as  "Nora" | "Material" | "Aura" | "Lara");
+      this.onPresetChange(this.themeState().preset);
     }
   }
 
@@ -162,7 +156,7 @@ export class ThemeSwitcher {
   transitionComplete = signal<boolean>(false);
 
   primaryColors = computed(() => {
-    const presetPalette = presets[this.themeState().preset as  "Nora" | "Material" | "Aura" | "Lara"].primitive;
+    const presetPalette = presets[this.themeState().preset].primitive;
     const colors = [
       'emerald',
       'green',
@@ -182,22 +176,13 @@ export class ThemeSwitcher {
       'rose',
     ];
     const palettes = [{ name: 'noir', palette: {} }];
-   // const safePresetPalette = presetPalette ?? {}; // Ensure it's always an object
 
-   
-      
-   type PresetPaletteKeys = keyof typeof presetPalette; // Get allowed keys
-
-    if (presetPalette) {
-        colors.forEach((color) => {
-          palettes.push({
-            name: color,
-            palette: presetPalette[color  as PresetPaletteKeys] || {}, // Safe because we checked
-          });
-        });
-      } else {
-        console.warn("presetPalette is undefined, skipping color processing.");
-      }
+    colors.forEach((color) => {
+      palettes.push({
+        name: color,
+        palette: presetPalette[color],
+      });
+    });
 
     return palettes;
   });
@@ -353,7 +338,7 @@ export class ThemeSwitcher {
       (c) => c.name === this.selectedPrimaryColor()
     );
 
-    if (color?.name === 'noir') {
+    if (color.name === 'noir') {
       return {
         semantic: {
           primary: {
@@ -405,7 +390,7 @@ export class ThemeSwitcher {
       if (this.themeState().preset === 'Nora') {
         return {
           semantic: {
-            primary: color?.palette,
+            primary: color.palette,
             colorScheme: {
               light: {
                 primary: {
@@ -441,7 +426,7 @@ export class ThemeSwitcher {
       } else if (this.themeState().preset === 'Material') {
         return {
           semantic: {
-            primary: color?.palette,
+            primary: color.palette,
             colorScheme: {
               light: {
                 primary: {
@@ -481,7 +466,7 @@ export class ThemeSwitcher {
       } else {
         return {
           semantic: {
-            primary: color?.palette,
+            primary: color.palette,
             colorScheme: {
               light: {
                 primary: {
@@ -573,7 +558,7 @@ export class ThemeSwitcher {
     }
   }
 
-  onPresetChange(event: keyof typeof presets) {
+  onPresetChange(event: any) {
     this.themeState.update((state) => ({ ...state, preset: event }));
     const preset = presets[event];
     const surfacePalette = this.surfaces.find(

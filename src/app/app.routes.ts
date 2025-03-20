@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { TableProductsDemo } from './table-products-demo';
+import { TableRowEditDemo } from './table-row-edit-demo';
 
 export const routes: Routes = [
     {
@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'pruebas',
-        component:TableProductsDemo,
+        component:TableRowEditDemo,
     }
 
 ];
