@@ -13,6 +13,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
+
 const presets = {
     Aura,
     Material,
@@ -20,11 +21,14 @@ const presets = {
     Nora
 };
 
+
+
 export interface ThemeState {
     preset?: string;
     primary?: string;
     surface?: string;
     darkTheme?: boolean;
+    darkMode: boolean;
 }
 
 @Component({
@@ -116,7 +120,10 @@ export class ThemeSwitcher {
 
   config: PrimeNG = inject(PrimeNG);
 
-  themeState = signal<ThemeState>(null);
+  themeState = signal<ThemeState>({
+    darkMode: false,
+
+  });
 
   theme = computed(() => (this.themeState()?.darkTheme ? 'dark' : 'light'));
 
@@ -154,6 +161,12 @@ export class ThemeSwitcher {
   }
 
   transitionComplete = signal<boolean>(false);
+
+  
+
+
+
+  
 
   primaryColors = computed(() => {
     const presetPalette = presets[this.themeState().preset].primitive;
@@ -338,7 +351,7 @@ export class ThemeSwitcher {
       (c) => c.name === this.selectedPrimaryColor()
     );
 
-    if (color.name === 'noir') {
+    if (color?.name === 'noir') {
       return {
         semantic: {
           primary: {
@@ -390,7 +403,7 @@ export class ThemeSwitcher {
       if (this.themeState().preset === 'Nora') {
         return {
           semantic: {
-            primary: color.palette,
+            primary: color?.palette,
             colorScheme: {
               light: {
                 primary: {
@@ -426,7 +439,7 @@ export class ThemeSwitcher {
       } else if (this.themeState().preset === 'Material') {
         return {
           semantic: {
-            primary: color.palette,
+            primary: color?.palette,
             colorScheme: {
               light: {
                 primary: {
@@ -466,7 +479,7 @@ export class ThemeSwitcher {
       } else {
         return {
           semantic: {
-            primary: color.palette,
+            primary: color?.palette,
             colorScheme: {
               light: {
                 primary: {

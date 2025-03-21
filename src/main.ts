@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { TableRowEditDemo } from './app/table-row-edit-demo';
+import { TableProductsDemo } from './app/table-products-demo';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
@@ -16,6 +16,6 @@ import Aura from '@primeng/themes/aura';
     ],
   };
 
-    bootstrapApplication(TableRowEditDemo, appConfig).catch((err) =>
+    bootstrapApplication(TableProductsDemo, appConfig).catch((err) =>
     console.error(err)
 );
