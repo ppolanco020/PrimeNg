@@ -104,7 +104,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DrawerModule } from 'primeng/drawer';
 import { ThemeSwitcher } from './themeswitcher';
 
-import { ProductService } from './service/product.service';
+import { ProductService } from './service/customer.service';
 
 @NgModule({
     imports: [
