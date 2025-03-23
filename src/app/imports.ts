@@ -319,6 +319,6 @@ import { ProductService } from './service/product.service';
         AutoFocusModule,
         OverlayBadgeModule,
       ],
-  providers: [ ProductService ]
+  providers: [ CustomerService ]
 })
 export class ImportsModule {}
