@@ -18,7 +18,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { DatePickerModule } from 'primeng/datepicker';
 import { CarouselModule } from 'primeng/carousel';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
-import { ChartModule } from 'primeng/chart';
+//import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChipModule } from 'primeng/chip';
 import { ColorPickerModule } from 'primeng/colorpicker';
@@ -57,7 +57,7 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MeterGroupModule } from 'primeng/metergroup';
-import { OrganizationChartModule } from 'primeng/organizationchart';
+//import { OrganizationChartModule } from 'primeng/organizationchart';
 import { OrderListModule } from 'primeng/orderlist';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { PaginatorModule } from 'primeng/paginator';
@@ -102,13 +102,13 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DrawerModule } from 'primeng/drawer';
-import { ThemeSwitcher } from './themeswitcher';
 
-import { ProductService } from './service/customer.service';
+
+import { ProductService } from './service/product.service';
 
 @NgModule({
     imports: [
-        ThemeSwitcher,
+
         AvatarModule,
         AvatarGroupModule,
         AnimateOnScrollModule,
@@ -126,7 +126,7 @@ import { ProductService } from './service/customer.service';
         DatePickerModule,
         CarouselModule,
         CascadeSelectModule,
-        ChartModule,
+        //ChartModule,
         CheckboxModule,
         ChipModule,
         ColorPickerModule,
@@ -166,7 +166,7 @@ import { ProductService } from './service/customer.service';
         MessagesModule,
         MultiSelectModule,
         MeterGroupModule,
-        OrganizationChartModule,
+        //OrganizationChartModule,
         OrderListModule,
         OverlayPanelModule,
         PaginatorModule,
@@ -214,7 +214,7 @@ import { ProductService } from './service/customer.service';
         OverlayBadgeModule,
     ],
       exports: [
-        ThemeSwitcher,
+   
         TabsModule,
         AvatarModule,
         AvatarGroupModule,
@@ -232,7 +232,7 @@ import { ProductService } from './service/customer.service';
         DatePickerModule,
         CarouselModule,
         CascadeSelectModule,
-        ChartModule,
+       // ChartModule,
         CheckboxModule,
         ChipModule,
         ColorPickerModule,
@@ -272,7 +272,7 @@ import { ProductService } from './service/customer.service';
         MessagesModule,
         MultiSelectModule,
         MeterGroupModule,
-        OrganizationChartModule,
+      //  OrganizationChartModule,
         OrderListModule,
         OverlayPanelModule,
         PaginatorModule,
