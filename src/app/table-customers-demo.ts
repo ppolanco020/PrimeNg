@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer,Representative } from './domain/customer';
+import { Customer,Representative } from './domain/customer'; 
 import { CustomerService } from './service/customer.service';
 import { TableModule } from 'primeng/table';
 import { Tag } from 'primeng/tag';
@@ -13,14 +13,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { Slider } from 'primeng/slider';
 import { ProgressBar } from 'primeng/progressbar';
+import { FilterService } from 'primeng/api';
 
 @Component({
     selector: 'table-customers-demo',
-    templateUrl: 'table-customers-demo.html',
+    templateUrl:'table-customers-demo.html',
     standalone: true,
-    imports: [TableModule, Tag, ButtonModule, HttpClientModule,
-    CommonModule, MultiSelectModule, InputTextModule, DropdownModule ],
-    providers: [CustomerService],
+    imports: [TableModule, Tag, ButtonModule,IconField, InputIcon, HttpClientModule,
+    CommonModule, MultiSelectModule, InputTextModule, DropdownModule, Slider  ],
+    providers: [CustomerService,ProgressBar,FilterService],
     styles: [
     `
     :host ::ng-deep {
@@ -128,15 +129,6 @@ import { ProgressBar } from 'primeng/progressbar';
     ],
 })
 export class TableCustomersDemo implements OnInit{
-onRowEditInit(_t12: any) {
-throw new Error('Method not implemented.');
-}
-onRowEditSave(_t12: any) {
-throw new Error('Method not implemented.');
-}
-onRowEditCancel(_t12: any,_t14: any) {
-throw new Error('Method not implemented.');
-}
     customers!: Customer[];
 
     selectedCustomers!: Customer[];
@@ -197,8 +189,8 @@ throw new Error('Method not implemented.');
                 return 'warn';
 
             case 'renewal':
-                return null;
+                return 'success';
         }
-        return 'negotiation';  // Return a default value if no case matches
+        return 'success';
     }
 }

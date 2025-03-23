@@ -102,13 +102,13 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DrawerModule } from 'primeng/drawer';
-import { ThemeSwitcher } from './themeswitcher';
 
-import { ProductService } from './service/customer.service';
+
+import { CustomerService } from './service/customer.service';
 
 @NgModule({
     imports: [
-        ThemeSwitcher,
+
         AvatarModule,
         AvatarGroupModule,
         AnimateOnScrollModule,
@@ -214,7 +214,7 @@ import { ProductService } from './service/customer.service';
         OverlayBadgeModule,
     ],
       exports: [
-        ThemeSwitcher,
+   
         TabsModule,
         AvatarModule,
         AvatarGroupModule,
@@ -319,6 +319,6 @@ import { ProductService } from './service/customer.service';
         AutoFocusModule,
         OverlayBadgeModule,
       ],
-  providers: [ ProductService ]
+  providers: [ CustomerService ]
 })
 export class ImportsModule {}
